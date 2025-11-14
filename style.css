@@ -1,15 +1,12 @@
-/* --- Importa un font moderno da Google Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* --- Variabili dei colori per un facile accesso --- */
 :root {
-  --colore-sfondo: #121212; /* Nero/Grigio Scuro Moderno */
-  --colore-testo: #E0E0E0; /* Grigio chiaro per leggibilità */
-  --colore-primario: #FFC300; /* Giallo acceso */
-  --colore-secondario: #8E44AD; /* Viola */
+  --colore-sfondo: #121212;
+  --colore-testo: #E0E0E0;
+  --colore-primario: #FFC300;
+  --colore-secondario: #8E44AD;
 }
 
-/* --- Reset e Stile Globale --- */
 * {
   margin: 0;
   padding: 0;
@@ -23,8 +20,10 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3 {
-  color: var(--colore-primario); /* Titoli in giallo */
+h1,
+h2,
+h3 {
+  color: var(--colore-primario);
   margin-bottom: 1rem;
 }
 
@@ -35,38 +34,43 @@ p {
 a {
   color: var(--colore-primario);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* --- Layout Principale --- */
+a:hover,
+a:focus {
+  color: var(--colore-secondario);
+}
+
 .container {
   max-width: 1100px;
   margin: 2rem auto;
   padding: 0 2rem;
 }
 
-/* --- Header / Navigazione --- */
+main {
+  padding: 3rem 0;
+}
+
 header {
   background-color: #1B1B1B;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 3px solid var(--colore-secondario); /* Bordo viola */
+  border-bottom: 3px solid var(--colore-secondario);
 }
 
 header .logo {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--colore-primario); /* Logo giallo */
+  color: var(--colore-primario);
 }
 
 header nav ul {
   list-style: none;
   display: flex;
-}
-
-header nav li {
-  margin-left: 2rem;
+  gap: 2rem;
 }
 
 header nav a {
@@ -76,60 +80,57 @@ header nav a {
 }
 
 header nav a:hover,
+header nav a:focus,
 header nav a.active {
-  color: var(--colore-primario); /* Colore giallo al passaggio e per la pagina attiva */
-}
-
-/* --- Footer --- */
-footer {
-  text-align: center;
-  padding: 2rem;
-  margin-top: 3rem;
-  background-color: #1B1B1B;
-  color: #888;
-}
-
-/* --- [NUOVO] Stili Social Footer --- */
-.social-links {
-  margin-bottom: 1rem;
-}
-
-.social-links a {
-  color: var(--colore-testo);
-  margin: 0 1rem;
-  font-weight: 700;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: var(--colore-primario); /* Giallo on hover */
-}
-
-
-/* --- Stili Specifici Pagina --- */
-
-/* Hero (Homepage) */
-.hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1500x600.png/121212/8E44AD?text=Immagine+Gioco+Qui') no-repeat center center/cover;
-  /* (Sostituisci l'URL sopra con una tua immagine) */
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 2rem;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
   color: var(--colore-primario);
 }
 
-.hero p {
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
+.game-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.game-hero h1 {
+  font-size: 3rem;
+}
+
+.game-hero p {
+  max-width: 700px;
+  margin: 0.5rem auto 1.5rem;
+}
+
+.game-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.game-meta .meta-card {
+  background-color: #1B1B1B;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  min-width: 220px;
+  border-top: 3px solid var(--colore-secondario);
+  text-align: center;
+}
+
+.game-section {
+  margin-bottom: 3rem;
+}
+
+.game-section h2 {
+  font-size: 1.8rem;
+}
+
+.feature-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.feature-list li {
+  margin-bottom: 0.75rem;
 }
 
 .btn {
@@ -142,103 +143,34 @@ footer {
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.btn:hover {
-  background-color: var(--colore-secondario); /* Il bottone diventa viola */
+.btn:hover,
+.btn:focus {
+  background-color: var(--colore-secondario);
   color: var(--colore-testo);
   transform: scale(1.05);
 }
 
-/* Pagina "Chi Siamo" - Team */
-.team-grid {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.team-member {
-  background-color: #1B1B1B;
-  padding: 1.5rem;
-  border-radius: 8px;
+footer {
   text-align: center;
-  width: 250px;
-  border-left: 4px solid var(--colore-secondario); /* Bordo viola */
-}
-
-.team-member img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--colore-primario); /* Bordo giallo */
-}
-
-.team-member h3 {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.team-member p.ruolo {
-  font-style: italic;
-  color: #aaa;
-}
-
-/* Pagina "News" - Articoli */
-.news-article {
-  background-color: #1B1B1B;
   padding: 2rem;
-  margin-bottom: 2rem;
-  border-radius: 8px;
-  border-left: 5px solid var(--colore-secondario); /* Bordo viola */
-}
-
-.news-article h3 {
-  margin-bottom: 0.5rem;
-}
-
-.news-article .meta {
-  font-size: 0.9rem;
+  margin-top: 3rem;
+  background-color: #1B1B1B;
   color: #888;
+}
+
+.social-links {
   margin-bottom: 1rem;
 }
 
-.news-article a {
+.social-links a {
+  color: var(--colore-testo);
+  margin: 0 1rem;
   font-weight: 700;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
 }
 
-/* --- [NUOVO] Stili Pagina Articolo Singolo --- */
-.news-articolo-full {
-  background-color: #1B1B1B;
-  padding: 2.5rem;
-  border-radius: 8px;
-  border-top: 5px solid var(--colore-secondario); /* Bordo viola in alto */
-}
-
-.news-articolo-full h1 {
-  font-size: 2.5rem;
-}
-
-.news-articolo-full .meta {
-  font-size: 1rem;
-  color: #aaa;
-  margin-bottom: 2rem;
-  font-style: italic;
-}
-
-.news-articolo-full .contenuto-articolo p {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem; /* Testo leggermente più grande per leggibilità */
-  line-height: 1.7;
-}
-
-.news-articolo-full .back-link {
-  display: inline-block;
-  margin-top: 2rem;
-  font-weight: 700;
+.social-links a:hover,
+.social-links a:focus {
   color: var(--colore-primario);
-}
-
-.news-articolo-full .back-link:hover {
-    text-decoration: underline;
 }
